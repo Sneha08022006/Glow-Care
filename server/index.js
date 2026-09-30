@@ -24,7 +24,7 @@ app.use(express.json({ limit: "10mb" }));
 // =====================================
 
 const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
+  apiKey: process.env.GEMINI_API_KEY ? process.env.GEMINI_API_KEY.trim() : undefined,
 });
 
 // =====================================
@@ -104,6 +104,14 @@ Explicitly look for and list specific concerns if they are present, such as:
 - Uneven skin tone / Pigmentation
 - Redness
 
+IF THE IMAGE IS BLURRY OR NO FACE IS DETECTED:
+If you cannot clearly see a face because the camera moved or the image is too blurry, do NOT complain in text. Return this exact JSON instead:
+{
+  "skinType": "Unknown",
+  "concerns": ["Blurry Image / Face not visible"],
+  "recommendation": "Camera hil gaya tha ya face clear nahi hai. Kripya apna phone thoda steady pakde aur achi light me dobara scan karein."
+}
+
 Do not diagnose medical conditions.
 Give practical and detailed skincare recommendations based on these exact concerns.
 Keep the JSON clean and valid.
@@ -126,7 +134,15 @@ Keep the JSON clean and valid.
       .trim();
 
     // Convert Gemini response to JSON
-    const result = JSON.parse(cleanedText);
+    let result;
+    try {
+      result = JSON.parse(cleanedText);
+    } catch (parseError) {
+      console.log("Failed to parse Gemini output as JSON. Output was:", text);
+      return res.status(400).json({
+        error: "Image clear nahi aayi. Kripya camera steady rakhein aur dobara scan karein.",
+      });
+    }
 
     // Send result to frontend
     res.json(result);
@@ -135,7 +151,7 @@ Keep the JSON clean and valid.
     console.error("Gemini error:", error);
 
     res.status(500).json({
-      error: "AI skin analysis failed",
+      error: `AI Error: ${error.message} - Please hold camera steady.`,
       details: error.message,
     });
   }

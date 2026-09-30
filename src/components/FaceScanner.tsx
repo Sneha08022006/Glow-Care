@@ -27,8 +27,17 @@ const [result, setResult] = useState<{
       const canvas = document.createElement("canvas");
       const video = videoRef.current;
 
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
+      const MAX_WIDTH = 640;
+      let width = video.videoWidth;
+      let height = video.videoHeight;
+
+      if (width > MAX_WIDTH) {
+        height = Math.round((height * MAX_WIDTH) / width);
+        width = MAX_WIDTH;
+      }
+
+      canvas.width = width;
+      canvas.height = height;
 
       const ctx = canvas.getContext("2d");
 
@@ -36,9 +45,9 @@ const [result, setResult] = useState<{
         throw new Error("Canvas not supported");
       }
 
-      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      ctx.drawImage(video, 0, 0, width, height);
 
-      const imageData = canvas.toDataURL("image/jpeg", 0.8);
+      const imageData = canvas.toDataURL("image/jpeg", 0.6);
 
       const response = await fetch("http://localhost:10000/analyze-skin", {
         method: "POST",
