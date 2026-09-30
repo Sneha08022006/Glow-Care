@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Droplet, Sun, Scale, Flower, ArrowRight, RotateCcw, Sparkles } from 'lucide-react';
+import { Droplet, Sun, Scale, Flower, ArrowRight, ArrowLeft, RotateCcw, Sparkles } from 'lucide-react';
 import type { SkinType } from '@/data';
 import { useReveal } from '@/hooks/useReveal';
 
@@ -50,36 +50,68 @@ const questions: Question[] = [
   },
 ];
 
-export default function SkinQuiz() {
+export default function SkinQuiz({ onComplete }: { onComplete?: (type: SkinType) => void }) {
   const { ref, visible } = useReveal<HTMLDivElement>();
+  const [status, setStatus] = useState<'start' | 'playing' | 'result'>('start');
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<SkinType[]>([]);
+  const [selectedInStep, setSelectedInStep] = useState<SkinType | null>(null);
   const [result, setResult] = useState<SkinType | null>(null);
+  const [error, setError] = useState('');
 
-  const pick = (value: SkinType) => {
-    const next = [...answers, value];
-    setAnswers(next);
-    if (step + 1 < questions.length) {
-      setStep(step + 1);
-    } else {
-      const tally = next.reduce((acc, v) => {
-        acc[v] = (acc[v] || 0) + 1;
-        return acc;
-      }, {} as Record<SkinType, number>);
-      const winner = (Object.entries(tally) as [SkinType, number][]).sort(
-        (a, b) => b[1] - a[1]
-      )[0][0];
-      setResult(winner);
-    }
-  };
-
-  const reset = () => {
+  const startQuiz = () => {
+    setStatus('playing');
     setStep(0);
     setAnswers([]);
     setResult(null);
+    setSelectedInStep(null);
+    setError('');
   };
 
-  const progress = result ? 100 : (step / questions.length) * 100;
+  const nextStep = () => {
+    if (!selectedInStep) {
+      setError('Please select an answer to continue.');
+      return;
+    }
+    setError('');
+    
+    const nextAnswers = [...answers, selectedInStep];
+    
+    if (step + 1 < questions.length) {
+      setAnswers(nextAnswers);
+      setStep(step + 1);
+      setSelectedInStep(null); // Reset for next step
+    } else {
+      // Calculate result
+      const tally = nextAnswers.reduce((acc, v) => {
+        acc[v] = (acc[v] || 0) + 1;
+        return acc;
+      }, {} as Record<SkinType, number>);
+      
+      const winner = (Object.entries(tally) as [SkinType, number][]).sort(
+        (a, b) => b[1] - a[1]
+      )[0][0];
+      
+      setResult(winner);
+      setStatus('result');
+      if (onComplete) onComplete(winner);
+    }
+  };
+
+  const prevStep = () => {
+    if (step > 0) {
+      setStep(step - 1);
+      // Try to recover the answer they picked previously
+      const prevAns = answers[step - 1];
+      if (prevAns) setSelectedInStep(prevAns);
+      setAnswers(answers.slice(0, -1));
+      setError('');
+    } else {
+      setStatus('start');
+    }
+  };
+
+  const progress = status === 'result' ? 100 : status === 'start' ? 0 : (step / questions.length) * 100;
   const resultOption = options.find((o) => o.value === result);
 
   return (
@@ -103,12 +135,12 @@ export default function SkinQuiz() {
 
         <div
           ref={ref}
-          className={`reveal ${visible ? 'is-visible' : ''} mt-12 rounded-5xl bg-cream/80 backdrop-blur-xl ring-1 ring-blush-100 shadow-soft-lg p-6 sm:p-10`}
+          className={`reveal ${visible ? 'is-visible' : ''} mt-12 rounded-5xl bg-cream/80 backdrop-blur-xl ring-1 ring-blush-100 shadow-soft-lg p-6 sm:p-10 min-h-[400px] flex flex-col`}
         >
           {/* Progress */}
           <div className="flex items-center justify-between mb-8">
             <span className="text-sm font-medium text-ink/60">
-              {result ? 'Result' : `Question ${step + 1} of ${questions.length}`}
+              {status === 'result' ? 'Result' : status === 'start' ? 'Ready' : `Question ${step + 1} of ${questions.length}`}
             </span>
             <div className="w-40 h-2 rounded-full bg-blush-100 overflow-hidden">
               <div
@@ -118,21 +150,48 @@ export default function SkinQuiz() {
             </div>
           </div>
 
-          {!result && (
-            <div key={step} className="animate-[fadeIn_0.5s_ease]">
+          {status === 'start' && (
+            <div className="flex flex-col items-center justify-center flex-1 animate-[fadeIn_0.5s_ease] text-center">
+              <div className="w-20 h-20 rounded-full bg-blush-100 text-blush-600 flex items-center justify-center mb-6">
+                <Sparkles className="w-10 h-10" />
+              </div>
+              <h3 className="font-serif text-3xl font-semibold text-ink mb-4">Ready to find your match?</h3>
+              <p className="text-ink/70 mb-8 max-w-md mx-auto">Take our 1-minute quiz to get a personalized skincare routine designed specifically for your skin's unique needs.</p>
+              <button 
+                onClick={startQuiz}
+                className="inline-flex items-center gap-2 rounded-full bg-ink text-cream px-8 py-4 font-semibold shadow-soft hover:bg-blush-600 transition-colors text-lg"
+              >
+                Start the Skin Quiz
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          )}
+
+          {status === 'playing' && (
+            <div key={step} className="animate-[fadeIn_0.3s_ease] flex-1 flex flex-col">
               <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink">
                 {questions[step].q}
               </h3>
-              <div className="mt-8 grid sm:grid-cols-2 gap-4">
+              <div className="mt-8 grid sm:grid-cols-2 gap-4 flex-1">
                 {questions[step].options.map((opt) => {
                   const Icon = options.find((o) => o.value === opt.value)!.icon;
+                  const isSelected = selectedInStep === opt.value;
                   return (
                     <button
                       key={opt.value}
-                      onClick={() => pick(opt.value)}
-                      className="group flex items-start gap-4 rounded-3xl bg-white p-5 ring-1 ring-blush-100 hover:ring-blush-300 hover:bg-blush-50 transition-all duration-300 text-left hover:-translate-y-0.5"
+                      onClick={() => {
+                        setSelectedInStep(opt.value);
+                        setError('');
+                      }}
+                      className={`group flex items-start gap-4 rounded-3xl p-5 ring-1 transition-all duration-300 text-left hover:-translate-y-0.5 ${
+                        isSelected 
+                          ? 'bg-blush-50 ring-blush-400 shadow-md' 
+                          : 'bg-white ring-blush-100 hover:ring-blush-300 hover:bg-blush-50/50'
+                      }`}
                     >
-                      <span className="grid place-items-center w-12 h-12 rounded-2xl bg-blush-100 text-blush-600 group-hover:bg-blush-400 group-hover:text-white transition-colors duration-300 shrink-0">
+                      <span className={`grid place-items-center w-12 h-12 rounded-2xl transition-colors duration-300 shrink-0 ${
+                        isSelected ? 'bg-blush-500 text-white' : 'bg-blush-100 text-blush-600 group-hover:bg-blush-400 group-hover:text-white'
+                      }`}>
                         <Icon className="w-5 h-5" />
                       </span>
                       <span>
@@ -143,11 +202,31 @@ export default function SkinQuiz() {
                   );
                 })}
               </div>
+              
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-blush-100/50">
+                <button 
+                  onClick={prevStep}
+                  className="flex items-center gap-2 text-ink/60 hover:text-ink font-medium px-4 py-2 transition-colors"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Back
+                </button>
+                
+                {error && <span className="text-red-500 text-sm font-medium animate-pulse">{error}</span>}
+                
+                <button 
+                  onClick={nextStep}
+                  className="flex items-center gap-2 bg-ink text-cream px-6 py-2.5 rounded-full font-medium hover:bg-blush-600 transition-colors"
+                >
+                  {step === questions.length - 1 ? 'See Results' : 'Next Question'}
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           )}
 
-          {result && resultOption && (
-            <div className="text-center animate-[fadeIn_0.6s_ease]">
+          {status === 'result' && resultOption && (
+            <div className="text-center animate-[fadeIn_0.6s_ease] flex-1 flex flex-col justify-center">
               <div className="mx-auto grid place-items-center w-20 h-20 rounded-full bg-gradient-to-br from-blush-300 to-blush-500 text-white shadow-soft animate-soft-pulse">
                 <resultOption.icon className="w-9 h-9" />
               </div>
@@ -169,11 +248,11 @@ export default function SkinQuiz() {
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </a>
                 <button
-                  onClick={reset}
+                  onClick={startQuiz}
                   className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-ink ring-1 ring-blush-200 hover:bg-blush-50 transition-colors"
                 >
                   <RotateCcw className="w-4 h-4" />
-                  Retake quiz
+                  Restart quiz
                 </button>
               </div>
             </div>

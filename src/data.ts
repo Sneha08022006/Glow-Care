@@ -10,6 +10,8 @@ export type Product = {
   image: string;
   benefits: string[];
   rating: number;
+  ingredients: string[];
+  suitableSkinTypes: SkinType[];
 };
 
 export const products: Product[] = [
@@ -25,6 +27,8 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/30877766/pexels-photo-30877766.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     benefits: ['Non-stripping', 'Hydrating', 'Fragrance-free'],
     rating: 4.8,
+    ingredients: ['Water', 'Glycerin', 'Rose Water', 'Hyaluronic Acid'],
+    suitableSkinTypes: ['dry', 'sensitive', 'combination'],
   },
   {
     id: 'moisturizer',
@@ -38,6 +42,8 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/27544670/pexels-photo-27544670.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     benefits: ['Ceramide-rich', 'Non-greasy', 'Barrier repair'],
     rating: 4.9,
+    ingredients: ['Water', 'Squalane', 'Ceramides', 'Glycerin'],
+    suitableSkinTypes: ['dry', 'sensitive', 'combination', 'oily'],
   },
   {
     id: 'sunscreen',
@@ -51,6 +57,8 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/16615433/pexels-photo-16615433.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     benefits: ['No white cast', 'SPF 50', 'Reef-safe'],
     rating: 4.7,
+    ingredients: ['Zinc Oxide', 'Niacinamide', 'Squalane'],
+    suitableSkinTypes: ['oily', 'combination', 'sensitive', 'dry'],
   },
   {
     id: 'serum',
@@ -64,6 +72,8 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/4735937/pexels-photo-4735937.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     benefits: ['Brightening', 'Antioxidant', 'Fast-absorbing'],
     rating: 4.9,
+    ingredients: ['Vitamin C', 'Hyaluronic Acid', 'Ferulic Acid'],
+    suitableSkinTypes: ['dry', 'oily', 'combination'],
   },
   {
     id: 'cleanser',
@@ -77,6 +87,86 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/16329382/pexels-photo-16329382.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     benefits: ['Makeup-melting', 'Soothing', 'pH-balanced'],
     rating: 4.8,
+    ingredients: ['Raw Honey', 'Oat Milk Extract', 'Jojoba Oil'],
+    suitableSkinTypes: ['sensitive', 'dry', 'combination'],
+  },
+  {
+    id: 'toner',
+    name: 'Balance Essence Toner',
+    category: 'Toner',
+    tagline: 'Pore-refining hydration step',
+    description: 'An alcohol-free essence toner that preps skin, refines pores, and balances pH with niacinamide and green tea.',
+    price: '$22',
+    image: 'https://images.pexels.com/photos/4735937/pexels-photo-4735937.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    benefits: ['Pore-refining', 'pH-balancing', 'Alcohol-free'],
+    rating: 4.6,
+    ingredients: ['Green Tea Extract', 'Niacinamide', 'Aloe Vera'],
+    suitableSkinTypes: ['oily', 'combination', 'sensitive'],
+  },
+  {
+    id: 'eye-cream',
+    name: 'Awaken Eye Cream',
+    category: 'Eye Cream',
+    tagline: 'Brightening caffeine boost',
+    description: 'A rich, fast-absorbing eye cream that targets dark circles and puffiness with caffeine and peptides.',
+    price: '$34',
+    image: 'https://images.pexels.com/photos/27544670/pexels-photo-27544670.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    benefits: ['Depuffing', 'Brightening', 'Anti-aging'],
+    rating: 4.8,
+    ingredients: ['Caffeine', 'Peptides', 'Vitamin C'],
+    suitableSkinTypes: ['dry', 'oily', 'combination', 'sensitive'],
+  },
+  {
+    id: 'exfoliator',
+    name: 'Radiance BHA Liquid',
+    category: 'Exfoliator',
+    tagline: 'Gentle overnight resurfacing',
+    description: 'A 2% BHA liquid exfoliant that unclogs pores, smooths texture, and reveals glowing skin while you sleep.',
+    price: '$30',
+    image: 'https://images.pexels.com/photos/16329382/pexels-photo-16329382.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    benefits: ['Exfoliating', 'Acne-clearing', 'Texture-smoothing'],
+    rating: 4.9,
+    ingredients: ['Salicylic Acid (BHA)', 'Green Tea', 'Sodium Hyaluronate'],
+    suitableSkinTypes: ['oily', 'combination', 'dry'],
+  },
+  {
+    id: 'night-cream',
+    name: 'Midnight Repair Cream',
+    category: 'Night Cream',
+    tagline: 'Deep overnight recovery',
+    description: 'A luxurious night cream with retinol alternatives and peptides to firm, repair, and intensely hydrate.',
+    price: '$52',
+    image: 'https://images.pexels.com/photos/27544670/pexels-photo-27544670.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    benefits: ['Firming', 'Deep Hydration', 'Repairing'],
+    rating: 4.7,
+    ingredients: ['Bakuchiol', 'Peptides', 'Shea Butter'],
+    suitableSkinTypes: ['dry', 'combination'],
+  },
+  {
+    id: 'clay-mask',
+    name: 'Purifying Clay Mask',
+    category: 'Mask',
+    tagline: 'Detoxifying weekly treatment',
+    description: 'A mineral-rich kaolin clay mask that draws out impurities and reduces excess oil without over-drying.',
+    price: '$26',
+    image: 'https://images.pexels.com/photos/16615433/pexels-photo-16615433.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    benefits: ['Detoxifying', 'Oil-control', 'Clarifying'],
+    rating: 4.5,
+    ingredients: ['Kaolin Clay', 'Bentonite', 'Centella Asiatica'],
+    suitableSkinTypes: ['oily', 'combination'],
+  },
+  {
+    id: 'face-oil',
+    name: 'Golden Hour Face Oil',
+    category: 'Face Oil',
+    tagline: 'Nourishing botanical blend',
+    description: 'A lightweight blend of cold-pressed oils that seals in moisture, leaving skin with a healthy, glass-like finish.',
+    price: '$45',
+    image: 'https://images.pexels.com/photos/4735937/pexels-photo-4735937.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    benefits: ['Nourishing', 'Glow-boosting', 'Non-comedogenic'],
+    rating: 4.9,
+    ingredients: ['Jojoba Oil', 'Rosehip Oil', 'Squalane'],
+    suitableSkinTypes: ['dry', 'sensitive', 'combination'],
   },
 ];
 

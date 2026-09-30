@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Sparkles, Check, Droplet, Sun, Scale, Flower } from 'lucide-react';
 import { recommendations, type SkinType } from '@/data';
 import { useReveal } from '@/hooks/useReveal';
@@ -10,9 +10,15 @@ const tabs: { value: SkinType; label: string; icon: typeof Droplet }[] = [
   { value: 'sensitive', label: 'Sensitive', icon: Flower },
 ];
 
-export default function Recommendation() {
+export default function Recommendation({ suggestedSkinType }: { suggestedSkinType?: SkinType | null }) {
   const { ref, visible } = useReveal<HTMLDivElement>();
   const [active, setActive] = useState<SkinType>('dry');
+
+  useEffect(() => {
+    if (suggestedSkinType) {
+      setActive(suggestedSkinType);
+    }
+  }, [suggestedSkinType]);
   const rec = recommendations[active];
 
   return (

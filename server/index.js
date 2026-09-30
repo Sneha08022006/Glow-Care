@@ -11,13 +11,7 @@ const app = express();
 // CORS CONFIGURATION
 // =====================================
 
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://glowcare-1.onrender.com"],
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors());
 
 // =====================================
 // BODY PARSER
@@ -93,18 +87,26 @@ Return ONLY valid JSON in this exact format:
 }
 
 Possible skin types:
-
 - Oily
 - Dry
 - Combination
-- Normal
+- Sensitive
 
-Identify only visible skincare concerns.
+CRITICAL INSTRUCTIONS FOR CONCERNS:
+You must perform a detailed and deep analysis of the skin. 
+Explicitly look for and list specific concerns if they are present, such as:
+- Open pores
+- Pimples / Acne / Breakouts
+- Dull skin / Lack of glow
+- Dryness / Flakiness
+- Dark circles
+- Fine lines / Wrinkles
+- Uneven skin tone / Pigmentation
+- Redness
+
 Do not diagnose medical conditions.
-Do not identify the person.
-Give general skincare recommendations only.
-
-Keep the response short and practical.
+Give practical and detailed skincare recommendations based on these exact concerns.
+Keep the JSON clean and valid.
 `,
             },
           ],
