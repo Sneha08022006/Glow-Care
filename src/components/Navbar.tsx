@@ -5,7 +5,8 @@ const links = [
   { label: 'Home', href: '#home' },
   { label: 'Products', href: '#products' },
   { label: 'Skin Quiz', href: '#quiz' },
-  { label: 'AI Recommendation', href: '#recommendation' },
+  { label: 'Face Scan', href: '#scanner' },
+  { label: 'AI Routine', href: '#recommendation' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];

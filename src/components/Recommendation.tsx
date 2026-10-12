@@ -105,13 +105,25 @@ export default function Recommendation({ suggestedSkinType }: { suggestedSkinTyp
                   )}
                 </div>
                 <div className="flex-1">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blush-500">
-                    {r.step}
-                  </p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blush-500">
+                      {r.step}
+                    </p>
+                    {r.brand && (
+                      <span className="text-[10px] font-bold text-blush-600 bg-white px-2 py-0.5 rounded-full border border-blush-100">
+                        {r.brand}
+                      </span>
+                    )}
+                  </div>
                   <h4 className="mt-1 font-serif text-xl font-semibold text-ink">
                     {r.product}
                   </h4>
                   <p className="mt-1 text-sm text-ink/70 leading-relaxed">{r.detail}</p>
+                  {r.reason && (
+                    <p className="mt-2 text-xs font-medium text-emerald-800 bg-emerald-50/80 p-2 rounded-xl border border-emerald-200">
+                      🎯 Why this works: {r.reason}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}

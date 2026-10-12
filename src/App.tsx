@@ -10,6 +10,7 @@ import Faq from '@/components/Faq';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import FaceScanner from '@/components/FaceScanner';
+import Dashboard from '@/components/Dashboard';
 import type { SkinType } from '@/data';
 
 export default function App() {
@@ -23,6 +24,10 @@ export default function App() {
         <Products suggestedSkinType={inferredSkinType} />
         <SkinQuiz onComplete={setInferredSkinType} />
         <FaceScanner onComplete={setInferredSkinType} />
+        <Dashboard
+          currentSkinType={inferredSkinType}
+          onReset={() => setInferredSkinType(null)}
+        />
         <Recommendation suggestedSkinType={inferredSkinType} />
         <About />
         <Reviews />
