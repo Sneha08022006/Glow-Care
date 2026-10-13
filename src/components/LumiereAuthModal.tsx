@@ -29,14 +29,14 @@ export default function LumiereAuthModal({ isOpen, onClose, onLoginSuccess }: Lu
     const user = { name, email: emailOrPhone };
     localStorage.setItem('glowcare_user', JSON.stringify(user));
     if (onLoginSuccess) onLoginSuccess(user);
-    setNotification(isSignUp ? `Welcome to Lumière GlowCare, ${name} ♡` : `Welcome back, ${name} ♡`);
+    setNotification(isSignUp ? `Welcome to GlowCare, ${name} ♡` : `Welcome back, ${name} ♡`);
     setTimeout(() => {
       onClose();
     }, 1200);
   };
 
   const handleSocialLogin = (provider: 'Google' | 'Apple' | 'Facebook') => {
-    const user = { name: 'Sneha Kumari', email: 'sneha@lumierebeauty.com' };
+    const user = { name: 'Sneha Kumari', email: 'sneha@glowcare.com' };
     localStorage.setItem('glowcare_user', JSON.stringify(user));
     if (onLoginSuccess) onLoginSuccess(user);
     setNotification(`Signed in with ${provider} successfully ♡`);
@@ -87,7 +87,7 @@ export default function LumiereAuthModal({ isOpen, onClose, onLoginSuccess }: Lu
               </svg>
 
               <h2 className="font-brand text-lg sm:text-xl font-medium tracking-[0.28em] text-[#3A2E2B] mt-2">
-                L U M I É R E
+                G L O W C A R E
               </h2>
               <p className="text-[10px] sm:text-[11px] font-medium tracking-[0.24em] text-[#9E4F63] uppercase mt-0.5">
                 Beauty Lives in You
@@ -304,10 +304,10 @@ export default function LumiereAuthModal({ isOpen, onClose, onLoginSuccess }: Lu
           {/* Bottom Footnote Brand */}
           <div className="text-center pt-4">
             <span className="font-brand text-[10px] tracking-[0.25em] text-[#3A2E2B]/50 block">
-              L U M I É R E
+              G L O W C A R E
             </span>
             <span className="text-[9px] tracking-[0.2em] text-[#9E4F63]/70 uppercase block mt-0.5">
-              More Than Beauty
+              Beauty Lives in You
             </span>
           </div>
         </div>
@@ -316,7 +316,7 @@ export default function LumiereAuthModal({ isOpen, onClose, onLoginSuccess }: Lu
         <div className="hidden lg:block lg:col-span-6 xl:col-span-5 relative overflow-hidden bg-[#FAF3EE]">
           <img
             src={heroImg}
-            alt="Lumière Beauty Editorial"
+            alt="GlowCare Beauty Editorial"
             className="w-full h-full object-cover object-center transform scale-[1.02] hover:scale-105 transition-transform duration-1000"
           />
           {/* Subtle gradient vignette to blend edges */}

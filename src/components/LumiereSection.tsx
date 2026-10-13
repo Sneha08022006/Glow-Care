@@ -26,13 +26,13 @@ export default function LumiereSection({
     if (onUserAuth) onUserAuth(user);
     setStatusMsg(
       isSignUp
-        ? `Welcome to Lumière GlowCare, ${name}! ♡`
+        ? `Welcome to GlowCare, ${name}! ♡`
         : `Signed in successfully. Welcome back, ${name}! ♡`
     );
   };
 
   const handleSocial = (provider: string) => {
-    const user = { name: 'Sneha Kumari', email: 'sneha@lumierebeauty.com' };
+    const user = { name: 'Sneha Kumari', email: 'sneha@glowcare.com' };
     localStorage.setItem('glowcare_user', JSON.stringify(user));
     if (onUserAuth) onUserAuth(user);
     setStatusMsg(`Connected via ${provider} ♡ Welcome back, Sneha!`);
@@ -50,7 +50,7 @@ export default function LumiereSection({
         <div className="text-center mb-10">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-5 py-2 text-xs font-semibold text-[#9E4F63] ring-1 ring-[#9E4F63]/25 shadow-soft">
             <Sparkles className="w-3.5 h-3.5 text-[#9E4F63]" />
-            Lumière Beauty Lounge &bull; Personalized AI Member Portal
+            GlowCare Member Lounge &bull; Personalized AI Skincare Portal
           </span>
         </div>
 
@@ -80,7 +80,7 @@ export default function LumiereSection({
                 </svg>
 
                 <h2 className="font-brand text-lg sm:text-xl font-medium tracking-[0.28em] text-[#3A2E2B] mt-2">
-                  L U M I É R E
+                  G L O W C A R E
                 </h2>
                 <p className="text-[10px] sm:text-[11px] font-medium tracking-[0.24em] text-[#9E4F63] uppercase mt-0.5">
                   Beauty Lives in You
@@ -290,10 +290,10 @@ export default function LumiereSection({
             {/* Bottom Footnote Brand */}
             <div className="text-center pt-4">
               <span className="font-brand text-[10px] tracking-[0.25em] text-[#3A2E2B]/50 block">
-                L U M I É R E
+                G L O W C A R E
               </span>
               <span className="text-[9px] tracking-[0.2em] text-[#9E4F63]/70 uppercase block mt-0.5">
-                More Than Beauty
+                Beauty Lives in You
               </span>
             </div>
           </div>
@@ -302,7 +302,7 @@ export default function LumiereSection({
           <div className="hidden lg:block lg:col-span-6 xl:col-span-5 relative overflow-hidden bg-[#FAF3EE]">
             <img
               src={heroImg}
-              alt="Lumière Beauty Editorial"
+              alt="GlowCare Beauty Editorial"
               className="w-full h-full object-cover object-center transform scale-[1.02] hover:scale-105 transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />

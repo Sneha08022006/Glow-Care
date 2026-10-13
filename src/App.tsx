@@ -51,7 +51,7 @@ export default function App() {
       <main>
         <Hero onOpenAuth={() => setIsAuthOpen(true)} />
 
-        {/* Dedicated Lumière Luxury Lounge & Auth Portal (Matching your uploaded visual) */}
+        {/* Dedicated GlowCare Luxury Lounge & Auth Portal (Matching your uploaded visual) */}
         <LumiereSection onUserAuth={handleAuthSuccess} />
 
         <Products suggestedSkinType={inferredSkinType} />

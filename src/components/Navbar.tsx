@@ -7,7 +7,7 @@ const links = [
   { label: 'Skin Quiz', href: '#quiz' },
   { label: 'Face Scan', href: '#scanner' },
   { label: 'AI Routine', href: '#recommendation' },
-  { label: 'Lumière Lounge', href: '#lumiere-portal' },
+  { label: 'Member Lounge', href: '#lumiere-portal' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -57,11 +57,11 @@ export default function Navbar({ onOpenAuth, currentUser, onLogout }: NavbarProp
             </svg>
           </span>
           <div className="flex flex-col">
-            <span className="font-brand text-xl font-semibold tracking-[0.2em] text-[#3A2E2B]">
-              LUMIÈRE
+            <span className="font-brand text-xl font-bold tracking-[0.2em] text-[#3A2E2B]">
+              GLOWCARE
             </span>
             <span className="text-[10px] tracking-[0.22em] text-[#9E4F63] uppercase -mt-0.5 font-medium">
-              GlowCare Paris
+              Beauty Lives in You
             </span>
           </div>
         </a>

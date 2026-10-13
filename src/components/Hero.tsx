@@ -25,7 +25,7 @@ export default function Hero({ onOpenAuth }: HeroProps) {
             {/* Top Brand Tag */}
             <div className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-md px-4 py-1.5 text-xs font-semibold text-[#9E4F63] ring-1 ring-[#9E4F63]/25 shadow-soft mb-4">
               <Sparkles className="w-3.5 h-3.5 text-[#9E4F63]" />
-              <span className="font-brand tracking-widest text-[11px]">LUMIÈRE</span>
+              <span className="font-brand tracking-widest text-[11px] font-bold">GLOWCARE</span>
               <span className="text-ink/40">&bull;</span>
               <span>Beauty Lives in You</span>
             </div>
@@ -64,7 +64,7 @@ export default function Hero({ onOpenAuth }: HeroProps) {
                 onClick={onOpenAuth}
                 className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-md px-6 py-3.5 text-sm font-semibold text-[#3A2E2B] ring-1 ring-[#9E4F63]/25 hover:bg-white hover:text-[#9E4F63] shadow-soft transition-all duration-300"
               >
-                <span>Lumière Member Lounge ♡</span>
+                <span>GlowCare Member Lounge ♡</span>
               </button>
             </div>
 
