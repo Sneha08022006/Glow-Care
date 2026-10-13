@@ -47,10 +47,14 @@ function ProductModal({
 
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Image & Brand */}
-          <div className="relative min-h-[260px] sm:min-h-[320px] md:min-h-full bg-slate-50 flex items-center justify-center p-4 sm:p-6">
+          <div className="relative min-h-[260px] sm:min-h-[320px] md:min-h-full bg-[#FAF3EE] flex items-center justify-center p-4 sm:p-6">
             <img
               src={product.image}
               alt={product.name}
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src =
+                  'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=700&q=80';
+              }}
               className="w-full h-full max-h-[320px] sm:max-h-[380px] object-cover rounded-2xl sm:rounded-3xl shadow-soft"
             />
             <span className="absolute top-4 left-4 sm:top-6 sm:left-6 rounded-full bg-white/95 backdrop-blur px-3 py-1 text-xs font-bold text-blush-600 border border-blush-100 shadow-sm">
@@ -159,6 +163,10 @@ function ProductModal({
                   <img
                     src={rp.image}
                     alt={rp.name}
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src =
+                        'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=700&q=80';
+                    }}
                     className="w-16 h-16 rounded-xl object-cover shrink-0"
                   />
                   <div className="flex-1 min-w-0">
@@ -207,10 +215,15 @@ function ProductCard({
     >
       <div>
         {/* Product Visual Container */}
-        <div className="relative h-60 sm:h-64 md:h-72 overflow-hidden shrink-0 bg-slate-50">
+        <div className="relative h-60 sm:h-64 md:h-72 overflow-hidden shrink-0 bg-[#FAF3EE]">
           <img
             src={product.image}
             alt={product.name}
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src =
+                'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=700&q=80';
+            }}
+            loading="lazy"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
 

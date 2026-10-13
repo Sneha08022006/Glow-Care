@@ -1045,6 +1045,10 @@ If face is blurry or cannot be clearly detected, return error: "Face not clearly
                             <img
                               src={prod.image}
                               alt={prod.name}
+                              onError={(e) => {
+                                (e.currentTarget as HTMLImageElement).src =
+                                  'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=700&q=80';
+                              }}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                             <span className="absolute top-2 left-2 rounded-full bg-white/95 backdrop-blur px-2.5 py-0.5 text-[10px] font-bold text-blush-600 border border-blush-100 shadow-sm">

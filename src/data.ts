@@ -64,7 +64,7 @@ export const products: Product[] = [
       'A multi-action BHA formula crafted with 2% pure Salicylic Acid and antibacterial Oligopeptide-10. It dissolves oxidized sebum, unclogs micro-comedones, and prevents bacterial acne flare-ups without peeling.',
     price: '₹549',
     image:
-      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80',
     benefits: ['Clears Active Acne', 'Unclogs Pores', 'Reduces Blackheads', 'Oil Control'],
     rating: 4.9,
     ingredients: ['Salicylic Acid 2%', 'Oligopeptide-10', 'Centella Asiatica', 'Sodium Hyaluronate'],
@@ -87,7 +87,7 @@ export const products: Product[] = [
       'Clinically renowned 10% Vitamin B3 (Niacinamide) paired with 1% Zinc PCA. Visibly minimizes dilated pore size, regulates excess sebum production, and smooths uneven texture caused by chronic oiliness.',
     price: '₹600',
     image:
-      'https://images.unsplash.com/photo-1608248597359-54848149e9cb?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=700&q=80',
     benefits: ['Tightens Enlarged Pores', 'Balances Sebum', 'Strengthens Barrier', 'Smoother Texture'],
     rating: 4.8,
     ingredients: ['Niacinamide 10%', 'Zinc PCA 1%', 'Tamarindus Indica Seed Gum', 'Pentylene Glycol'],
@@ -110,7 +110,7 @@ export const products: Product[] = [
       'Intense, rich hydration formulated with Sweet Almond Oil, Niacinamide, Panthenol, and essential Ceramides. Repairs broken skin barriers, stops dryness flakes, and locks moisture in without stinging.',
     price: '₹475',
     image:
-      'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=700&q=80',
     benefits: ['48h Barrier Repair', 'Zero Stinging', 'Soothes Flaking', 'Fragrance-Free'],
     rating: 4.9,
     ingredients: ['Water', 'Glycerin', 'Sweet Almond Oil', 'Niacinamide', 'Panthenol (Pro-Vitamin B5)', 'Tocopherol'],
@@ -156,7 +156,7 @@ export const products: Product[] = [
       'Developed with dermatologists, this unique lotion-like formula gently cleanses dirt and light makeup without disrupting the skin’s natural protective barrier. Leaves skin feeling clean, calm, and supple.',
     price: '₹620',
     image:
-      'https://images.unsplash.com/photo-1556228722-d0b63b9f481c?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=80',
     benefits: ['Protects Skin Barrier', 'Non-Drying Cleanse', 'MVE Delivery Tech', 'Fragrance-Free'],
     rating: 4.9,
     ingredients: ['Ceramides 1, 3, 6-II', 'Hyaluronic Acid', 'Glycerin', 'Cholesterol', 'Phytosphingosine'],
@@ -179,7 +179,7 @@ export const products: Product[] = [
       'Enriched with Coco-Glucoside and the patented D.A.F. dermatological complex. Cleanses excess sebum and environmental pollution while boosting the tolerance threshold of sensitive, redness-prone skin.',
     price: '₹699',
     image:
-      'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1519735777090-ec97162dc266?auto=format&fit=crop&w=700&q=80',
     benefits: ['Balances T-Zone Sebum', 'Calms Facial Redness', 'Soap-Free & pH 5.5', 'No Tightness'],
     rating: 4.8,
     ingredients: ['Coco-Glucoside', 'Glyceryl Oleate', 'Mannitol', 'Xylitol', 'Rhamnose Complex'],
@@ -202,7 +202,7 @@ export const products: Product[] = [
       'Formulated with 10% pure Ethyl Ascorbic Acid (an ultra-stable Vitamin C derivative) and soothing Centella Asiatica. It inhibits tyrosinase activity to fade stubborn dark marks, brightens dull skin tone, and neutralizes free radicals.',
     price: '₹699',
     image:
-      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&w=700&q=80',
     benefits: ['Fades Dark Spots & PIH', 'Revives Skin Radiance', 'Antioxidant Defense', 'Even Skin Tone'],
     rating: 4.8,
     ingredients: ['10% Ethyl Ascorbic Acid', 'Centella Asiatica Leaf Water', 'Polyhydroxy Acid (Gluconolactone)'],
@@ -225,7 +225,7 @@ export const products: Product[] = [
       'An ultra-light liquid serum combining high 5% caffeine with purified Epigallocatechin Gallatyl Glucoside (EGCG) from green tea leaves. Targeted specifically at vascular dark under-eye circles and morning fluid retention puffiness.',
     price: '₹550',
     image:
-      'https://images.unsplash.com/photo-1608248597359-54848149e9cb?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=700&q=80',
     benefits: ['Reduces Dark Under-Eye Circles', 'Depuffs Morning Bags', 'Antioxidant Rich', 'Fast Absorbing'],
     rating: 4.7,
     ingredients: ['Caffeine 5%', 'Epigallocatechin Gallatyl Glucoside (EGCG)', 'Hyaluronic Acid', 'Lactic Acid'],
@@ -248,7 +248,7 @@ export const products: Product[] = [
       'The viral K-beauty holy grail essence. Packed with 96.3% Snail Secretion Filtrate to replenish moisture loss, smooth rough bumps, fade post-breakout scars, and restore a luminous, glass-skin bounce.',
     price: '₹1,050',
     image:
-      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=700&q=80',
     benefits: ['Intense Glass Skin Glow', 'Heals Acne Marks', 'Deep Hydration Bounce', 'Smooths Texture'],
     rating: 4.9,
     ingredients: ['Snail Secretion Filtrate 96.3%', 'Sodium Hyaluronate', 'Allantoin', 'Panthenol', 'Arginine'],
@@ -271,7 +271,7 @@ export const products: Product[] = [
       'Formulated with Jeju Volcanic Clusters and AHA/BHA. Deeply vacuums out stubborn blackheads, absorbs excess greasy sebum from the T-zone, and cools skin down by 2°C to refine dilated pore appearance.',
     price: '₹950',
     image:
-      'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=700&q=80',
     benefits: ['Absorbs Stubborn Sebum', 'Exfoliates Dead Cells', 'Cooling Pore Tightener', 'Clears Blackheads'],
     rating: 4.7,
     ingredients: ['Jeju Volcanic Clusters', 'Kaolin & Bentonite Clay', 'Lactic Acid (AHA)', 'Walnut Shell Powder'],
@@ -294,7 +294,7 @@ export const products: Product[] = [
       'A multi-functional, 100% plant-derived hydrocarbon that mimics your skin’s natural sebum. Provides lightweight surface hydration, eliminates dry patches, and leaves a healthy, non-greasy glow.',
     price: '₹750',
     image:
-      'https://images.unsplash.com/photo-1608248597359-54848149e9cb?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=700&q=80',
     benefits: ['Weightless Lipid Seal', 'Non-Comedogenic Glow', 'Restores Suppleness', 'Universal Hydration'],
     rating: 4.8,
     ingredients: ['100% Plant-Derived Squalane'],
