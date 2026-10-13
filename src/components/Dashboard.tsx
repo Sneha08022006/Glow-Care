@@ -29,7 +29,7 @@ export default function Dashboard({ currentSkinType, onReset }: DashboardProps) 
       <div className="absolute top-0 right-10 w-72 h-72 rounded-full bg-blush-100/50 blur-3xl -z-10" />
       <div className="absolute bottom-0 left-10 w-80 h-80 rounded-full bg-beige-100/50 blur-3xl -z-10" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-1.5 text-xs font-semibold text-blush-600 ring-1 ring-blush-200 shadow-soft">
             <Sparkles className="w-3.5 h-3.5" />
@@ -46,7 +46,7 @@ export default function Dashboard({ currentSkinType, onReset }: DashboardProps) 
         {currentSkinType && activeRec ? (
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Skin Profile Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-soft border border-blush-100 flex flex-col justify-between">
+            <div className="bg-white rounded-3xl p-4 sm:p-8 shadow-soft border border-blush-100 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-4xl">{activeRec.emoji}</span>
@@ -90,7 +90,7 @@ export default function Dashboard({ currentSkinType, onReset }: DashboardProps) 
             </div>
 
             {/* Routine Checklist Card */}
-            <div className="lg:col-span-2 bg-white rounded-3xl p-6 sm:p-8 shadow-soft border border-blush-100">
+            <div className="lg:col-span-2 bg-white rounded-3xl p-4 sm:p-8 shadow-soft border border-blush-100">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
                   <h3 className="font-serif text-xl sm:text-2xl font-semibold text-ink">

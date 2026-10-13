@@ -57,10 +57,10 @@ export default function Navbar({ onOpenAuth, currentUser, onLogout }: NavbarProp
             </svg>
           </span>
           <div className="flex flex-col">
-            <span className="font-brand text-xl font-bold tracking-[0.2em] text-[#3A2E2B]">
+            <span className="font-brand text-lg sm:text-xl font-bold tracking-[0.18em] sm:tracking-[0.2em] text-[#3A2E2B]">
               GLOWCARE
             </span>
-            <span className="text-[10px] tracking-[0.22em] text-[#9E4F63] uppercase -mt-0.5 font-medium">
+            <span className="text-[9px] sm:text-[10px] tracking-[0.18em] sm:tracking-[0.22em] text-[#9E4F63] uppercase -mt-0.5 font-medium">
               Beauty Lives in You
             </span>
           </div>
@@ -133,7 +133,7 @@ export default function Navbar({ onOpenAuth, currentUser, onLogout }: NavbarProp
           open ? 'max-h-[32rem]' : 'max-h-0'
         }`}
       >
-        <ul className="px-6 pb-6 pt-2 space-y-1 bg-[#FFFDFB]/98 backdrop-blur-xl border-t border-[#F7E5E8]">
+        <ul className="px-4 sm:px-6 pb-6 pt-2 space-y-1 bg-[#FFFDFB]/98 backdrop-blur-xl border-t border-[#F7E5E8]">
           {links.map((l) => (
             <li key={l.href}>
               <a

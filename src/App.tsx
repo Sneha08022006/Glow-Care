@@ -41,7 +41,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFDFB] text-[#3A2E2B] antialiased selection:bg-[#F7E5E8] selection:text-[#9E4F63]">
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#FFFDFB] text-[#3A2E2B] antialiased selection:bg-[#F7E5E8] selection:text-[#9E4F63]">
       <Navbar
         onOpenAuth={() => setIsAuthOpen(true)}
         currentUser={currentUser}

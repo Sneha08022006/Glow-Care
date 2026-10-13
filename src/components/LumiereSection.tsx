@@ -55,10 +55,10 @@ export default function LumiereSection({
         </div>
 
         {/* THE MAIN LUXURY CARD (Exact Replica of your image) */}
-        <div className="relative mx-auto max-w-5xl bg-[#FCF8F5] rounded-[2.5rem] sm:rounded-[3rem] shadow-2xl overflow-hidden border border-white/90 grid lg:grid-cols-12 min-h-[660px]">
+        <div className="relative mx-auto max-w-5xl bg-[#FCF8F5] rounded-3xl sm:rounded-[3rem] shadow-2xl overflow-hidden border border-white/90 grid lg:grid-cols-12 min-h-[660px]">
           
           {/* LEFT COLUMN: THE AUTH FORM */}
-          <div className="lg:col-span-6 xl:col-span-7 p-6 sm:p-10 md:p-12 flex flex-col justify-between relative bg-gradient-to-b from-[#FFFDFB] via-[#FCF6F4] to-[#F9EFEF]/60">
+          <div className="lg:col-span-6 xl:col-span-7 p-4 sm:p-8 md:p-12 flex flex-col justify-between relative bg-gradient-to-b from-[#FFFDFB] via-[#FCF6F4] to-[#F9EFEF]/60">
             
             {/* Top Brand & Title Header */}
             <div className="text-center pt-2">
@@ -249,7 +249,7 @@ export default function LumiereSection({
             </form>
 
             {/* 4 LUXURY TRUST BADGES */}
-            <div className="mt-8 pt-5 border-t border-[#3A2E2B]/10 grid grid-cols-4 gap-2 text-center">
+            <div className="mt-8 pt-5 border-t border-[#3A2E2B]/10 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-2 text-center">
               <div className="flex flex-col items-center group">
                 <span className="w-7 h-7 rounded-full bg-white/70 flex items-center justify-center text-[#9E4F63] mb-1 group-hover:scale-110 transition-transform shadow-xs">
                   <Leaf className="w-3.5 h-3.5" />

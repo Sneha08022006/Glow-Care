@@ -21,10 +21,10 @@ export default function Footer() {
   return (
     <footer className="relative bg-ink text-cream/80 overflow-hidden">
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] rounded-full bg-blush-500/20 blur-3xl" />
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-16">
-        <div className="grid lg:grid-cols-5 gap-10">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-2">
             <a href="#home" className="flex items-center gap-2.5">
               <span className="grid place-items-center w-10 h-10 rounded-2xl bg-gradient-to-br from-blush-300 to-blush-500 text-white">
                 <Sparkles className="w-5 h-5" />
@@ -83,17 +83,17 @@ export default function Footer() {
           </div>
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="flex gap-3 max-w-md md:ml-auto w-full"
+            className="flex flex-col sm:flex-row gap-3 max-w-md md:ml-auto w-full"
           >
             <input
               type="email"
               required
               placeholder="Your email"
-              className="flex-1 rounded-full bg-cream/10 px-5 py-3 text-cream placeholder:text-cream/40 ring-1 ring-cream/15 focus:ring-2 focus:ring-blush-300 focus:outline-none transition"
+              className="flex-1 rounded-full bg-cream/10 px-5 py-3 text-cream placeholder:text-cream/40 ring-1 ring-cream/15 focus:ring-2 focus:ring-blush-300 focus:outline-none transition text-sm"
             />
             <button
               type="submit"
-              className="rounded-full bg-blush-400 text-ink font-semibold px-6 py-3 hover:bg-blush-300 transition-colors"
+              className="rounded-full bg-blush-400 text-ink font-semibold px-6 py-3 hover:bg-blush-300 transition-colors text-sm"
             >
               Subscribe
             </button>

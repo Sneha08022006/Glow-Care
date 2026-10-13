@@ -574,26 +574,26 @@ If face is blurry or cannot be clearly detected, return error: "Face not clearly
       {/* Background Ambient Glows */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[40rem] h-[25rem] rounded-full bg-blush-200/40 blur-3xl -z-10 pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/90 backdrop-blur px-4 py-1.5 text-xs font-semibold text-blush-600 ring-1 ring-blush-200 shadow-soft">
             <Stethoscope className="w-4 h-4 text-blush-500" />
             AI Clinical Dermatology Diagnosis
           </span>
 
-          <h2 className="mt-4 font-serif text-4xl sm:text-5xl font-semibold text-ink">
+          <h2 className="mt-3 sm:mt-4 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink">
             Clinical Face Analysis
           </h2>
 
-          <p className="mt-4 text-ink/75 leading-relaxed text-sm sm:text-base">
+          <p className="mt-3 sm:mt-4 text-ink/75 leading-relaxed text-sm sm:text-base">
             Scan your face using our high-precision AI dermatologist. We detect real epidermal concerns, evaluate your skin barrier, and formulate a customized medical-grade regimen with exact product matches.
           </p>
         </div>
 
         {/* Scanner Viewport Card */}
-        <div className="max-w-3xl mx-auto bg-white rounded-4xl p-6 sm:p-8 shadow-soft-lg border border-blush-100">
-          <div className="relative aspect-video max-h-[420px] bg-slate-900 rounded-3xl overflow-hidden flex items-center justify-center border-2 border-blush-100/80 shadow-inner">
+        <div className="max-w-3xl mx-auto bg-white rounded-3xl sm:rounded-4xl p-4 sm:p-6 md:p-8 shadow-soft-lg border border-blush-100">
+          <div className="relative aspect-[4/3] sm:aspect-video max-h-[420px] bg-slate-900 rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center border-2 border-blush-100/80 shadow-inner">
             {cameraOn ? (
               <>
                 <video
@@ -684,7 +684,7 @@ If face is blurry or cannot be clearly detected, return error: "Face not clearly
           )}
 
           {/* Controls Bar */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
             <input
               type="file"
               ref={fileInputRef}
@@ -699,7 +699,7 @@ If face is blurry or cannot be clearly detected, return error: "Face not clearly
                   type="button"
                   onClick={startCamera}
                   disabled={analyzing}
-                  className="px-8 py-3.5 rounded-full bg-ink text-white font-semibold text-sm hover:bg-blush-600 transition-colors shadow-soft flex items-center gap-2.5 disabled:opacity-50"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-ink text-white font-semibold text-sm hover:bg-blush-600 transition-colors shadow-soft flex items-center justify-center gap-2.5 disabled:opacity-50"
                 >
                   <Camera className="w-4 h-4" />
                   {previewImage ? "Scan Again via Camera" : "Start Live Face Scan"}
@@ -709,7 +709,7 @@ If face is blurry or cannot be clearly detected, return error: "Face not clearly
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
                   disabled={analyzing}
-                  className="px-6 py-3.5 rounded-full bg-white ring-1 ring-blush-200 text-ink font-semibold text-sm hover:bg-blush-50 transition-colors flex items-center gap-2 disabled:opacity-50"
+                  className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white ring-1 ring-blush-200 text-ink font-semibold text-sm hover:bg-blush-50 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   <Upload className="w-4 h-4 text-blush-600" />
                   Upload Selfie / Photo
@@ -721,7 +721,7 @@ If face is blurry or cannot be clearly detected, return error: "Face not clearly
                   type="button"
                   onClick={startAnalysis}
                   disabled={analyzing || countdown !== null}
-                  className="px-8 py-3.5 rounded-full bg-gradient-to-r from-blush-500 to-blush-600 text-white font-semibold text-sm hover:from-blush-600 hover:to-blush-700 transition-all shadow-soft flex items-center gap-2.5 disabled:opacity-50"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-gradient-to-r from-blush-500 to-blush-600 text-white font-semibold text-sm hover:from-blush-600 hover:to-blush-700 transition-all shadow-soft flex items-center justify-center gap-2.5 disabled:opacity-50"
                 >
                   <Sparkles className="w-4 h-4" />
                   {countdown !== null ? `Capturing in ${countdown}...` : "Capture & Analyze My Skin"}
@@ -731,7 +731,7 @@ If face is blurry or cannot be clearly detected, return error: "Face not clearly
                   type="button"
                   onClick={stopCamera}
                   disabled={analyzing}
-                  className="px-6 py-3.5 rounded-full bg-white ring-1 ring-blush-200 text-ink font-medium text-sm hover:bg-blush-50 transition-colors"
+                  className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white ring-1 ring-blush-200 text-ink font-medium text-sm hover:bg-blush-50 transition-colors justify-center flex items-center"
                 >
                   Cancel Camera
                 </button>
@@ -742,7 +742,7 @@ If face is blurry or cannot be clearly detected, return error: "Face not clearly
 
         {/* RESULTS: CLINICAL DERMATOLOGIST PRESCRIPTION & DIAGNOSTIC REPORT */}
         {result && (
-          <div className="mt-12 bg-white rounded-5xl p-6 sm:p-10 shadow-soft-xl border border-blush-200 animate-[fadeIn_0.5s_ease-out]">
+          <div className="mt-8 sm:mt-12 bg-white rounded-3xl sm:rounded-5xl p-4 sm:p-8 md:p-10 shadow-soft-xl border border-blush-200 animate-[fadeIn_0.5s_ease-out]">
             {/* Header: Verified Doctor Consultation Badge */}
             <div className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-blush-100">
               <div className="flex items-center gap-4">
@@ -809,7 +809,7 @@ If face is blurry or cannot be clearly detected, return error: "Face not clearly
               </div>
 
               {/* 4 Biometric Metric Sliders */}
-              <div className="md:col-span-3 grid sm:grid-cols-2 gap-4">
+              <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                 {[
                   {
                     label: "Hydration Level",
@@ -877,7 +877,7 @@ If face is blurry or cannot be clearly detected, return error: "Face not clearly
                 </h4>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
                 {result.concerns && result.concerns.length > 0 ? (
                   result.concerns.map((concern, idx) => (
                     <div
@@ -955,7 +955,7 @@ If face is blurry or cannot be clearly detected, return error: "Face not clearly
                 </div>
 
                 {/* AM & PM CLINICAL ROUTINE SCHEDULE */}
-                <div className="mt-8 pt-8 border-t border-blush-200/70 grid md:grid-cols-2 gap-6">
+                <div className="mt-8 pt-8 border-t border-blush-200/70 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   {/* AM Routine */}
                   <div className="p-5 rounded-3xl bg-white border border-blush-100 shadow-soft">
                     <div className="flex items-center gap-2 mb-3 text-amber-600 font-bold text-sm">
@@ -1025,14 +1025,14 @@ If face is blurry or cannot be clearly detected, return error: "Face not clearly
 
                   <button
                     onClick={() => addAllPrescribed(result.prescribedProductIds)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ink text-white text-xs font-semibold hover:bg-blush-600 transition-colors shadow-soft"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-ink text-white text-xs font-semibold hover:bg-blush-600 transition-colors shadow-soft w-full sm:w-auto"
                   >
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                     Add All Prescribed to Routine
                   </button>
                 </div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                   {prescribedProductsList.map((prod) => {
                     const isAdded = !!addedProductIds[prod.id];
                     return (

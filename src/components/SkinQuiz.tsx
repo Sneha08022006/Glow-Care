@@ -302,26 +302,26 @@ export default function SkinQuiz({ onComplete }: { onComplete?: (type: SkinType)
       <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-blush-200/40 blur-3xl -z-10 pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-beige-200/50 blur-3xl -z-10 pointer-events-none" />
 
-      <div className="mx-auto max-w-5xl px-6 lg:px-10">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-10">
         <div className="text-center max-w-2xl mx-auto">
           <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white text-xs font-semibold text-blush-600 ring-1 ring-blush-200 shadow-soft">
             <Stethoscope className="w-4 h-4 text-blush-500" />
             Clinical Dermatological Diagnostic
           </span>
-          <h2 className="mt-4 font-serif text-4xl sm:text-5xl font-semibold text-ink">
+          <h2 className="mt-3 sm:mt-4 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink">
             Real-Life Skin Diagnostic Quiz
           </h2>
-          <p className="mt-4 text-ink/75 leading-relaxed text-sm sm:text-base">
+          <p className="mt-3 sm:mt-4 text-ink/75 leading-relaxed text-sm sm:text-base">
             Solve real skin problems — active acne, stubborn dark spots, open pores, or damaged barriers. Answer 4 targeted clinical questions to discover exactly which real products are useful for your skin.
           </p>
         </div>
 
         <div
           ref={ref}
-          className={`reveal ${visible ? 'is-visible' : ''} mt-12 rounded-5xl bg-white/90 backdrop-blur-xl ring-1 ring-blush-100 shadow-soft-xl p-6 sm:p-10 min-h-[440px] flex flex-col`}
+          className={`reveal ${visible ? 'is-visible' : ''} mt-8 sm:mt-12 rounded-3xl sm:rounded-5xl bg-white/90 backdrop-blur-xl ring-1 ring-blush-100 shadow-soft-xl p-4 sm:p-8 md:p-10 min-h-[440px] flex flex-col`}
         >
           {/* Progress Header */}
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-blush-100">
+          <div className="flex items-center justify-between mb-6 sm:mb-8 pb-4 border-b border-blush-100">
             <span className="text-xs font-bold uppercase tracking-wider text-ink/60">
               {status === 'result'
                 ? 'Clinical Prescription Ready'
@@ -331,7 +331,7 @@ export default function SkinQuiz({ onComplete }: { onComplete?: (type: SkinType)
             </span>
             <div className="flex items-center gap-3">
               <span className="text-xs font-semibold text-blush-600">{Math.round(progressPercent)}%</span>
-              <div className="w-36 h-2 rounded-full bg-blush-100 overflow-hidden">
+              <div className="w-24 sm:w-36 h-2 rounded-full bg-blush-100 overflow-hidden">
                 <div
                   className="h-full rounded-full bg-gradient-to-r from-blush-400 to-blush-600 transition-all duration-500"
                   style={{ width: `${progressPercent}%` }}
@@ -343,21 +343,21 @@ export default function SkinQuiz({ onComplete }: { onComplete?: (type: SkinType)
           {/* START SCREEN */}
           {status === 'start' && (
             <div className="flex flex-col items-center justify-center flex-1 text-center py-6 animate-[fadeIn_0.5s_ease]">
-              <div className="w-20 h-20 rounded-3xl bg-blush-100 text-blush-600 flex items-center justify-center mb-6 shadow-soft">
-                <Sparkles className="w-10 h-10" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-blush-100 text-blush-600 flex items-center justify-center mb-5 sm:mb-6 shadow-soft">
+                <Sparkles className="w-8 h-8 sm:w-10 sm:h-10" />
               </div>
-              <h3 className="font-serif text-3xl font-semibold text-ink mb-3">
+              <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink mb-3">
                 Diagnose Your Real Skin Condition
               </h3>
-              <p className="text-ink/70 mb-8 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
+              <p className="text-ink/70 mb-8 max-w-lg mx-auto text-xs sm:text-sm md:text-base leading-relaxed">
                 No generic guesses. Our diagnostic engine evaluates your sebum levels, active acne triggers, pigmentation marks, and barrier strength to match you with proven clinical formulations from Minimalist, CeraVe, and The Ordinary.
               </p>
               <button
                 onClick={startQuiz}
-                className="inline-flex items-center gap-2 rounded-full bg-ink text-white px-8 py-4 font-semibold shadow-soft hover:bg-blush-600 transition-all text-base hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full bg-ink text-white px-7 sm:px-8 py-3.5 sm:py-4 font-semibold shadow-soft hover:bg-blush-600 transition-all text-sm sm:text-base hover:-translate-y-0.5"
               >
                 Start Diagnostic Quiz (1 Min)
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
           )}
@@ -369,7 +369,7 @@ export default function SkinQuiz({ onComplete }: { onComplete?: (type: SkinType)
                 <span className="text-xs font-semibold uppercase tracking-wider text-blush-600">
                   Question {step + 1}
                 </span>
-                <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-ink mt-1">
+                <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-semibold text-ink mt-1">
                   {questions[step].title}
                 </h3>
                 <p className="text-xs sm:text-sm text-ink/65 mt-1">
@@ -377,7 +377,7 @@ export default function SkinQuiz({ onComplete }: { onComplete?: (type: SkinType)
                 </p>
               </div>
 
-              <div className="mt-8 grid sm:grid-cols-2 gap-4 flex-1">
+              <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 flex-1">
                 {questions[step].options.map((opt) => {
                   const isSelected = selectedInStep === opt.value;
                   return (
@@ -539,7 +539,7 @@ export default function SkinQuiz({ onComplete }: { onComplete?: (type: SkinType)
                   </button>
                 </div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
                   {prescribedProducts.map((p) => {
                     const isAdded = !!addedProducts[p.id];
                     return (
@@ -617,7 +617,7 @@ export default function SkinQuiz({ onComplete }: { onComplete?: (type: SkinType)
                   </h4>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   {/* AM */}
                   <div className="p-5 rounded-3xl bg-white border border-blush-100 shadow-soft">
                     <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-600 mb-3">

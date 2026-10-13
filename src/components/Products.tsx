@@ -30,36 +30,36 @@ function ProductModal({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-ink/50 backdrop-blur-sm animate-[fadeIn_0.2s_ease]"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-ink/50 backdrop-blur-sm animate-[fadeIn_0.2s_ease]"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-white rounded-5xl shadow-2xl border border-blush-200"
+        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-white rounded-3xl sm:rounded-5xl shadow-2xl border border-blush-200"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2.5 rounded-full bg-cream/90 hover:bg-cream text-ink transition-colors z-20 border border-blush-200"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 sm:p-2.5 rounded-full bg-cream/90 hover:bg-cream text-ink transition-colors z-20 border border-blush-200"
           aria-label="Close modal"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
-        <div className="grid md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Image & Brand */}
-          <div className="relative min-h-[320px] md:min-h-full bg-slate-50 flex items-center justify-center p-6">
+          <div className="relative min-h-[260px] sm:min-h-[320px] md:min-h-full bg-slate-50 flex items-center justify-center p-4 sm:p-6">
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-full max-h-[380px] object-cover rounded-3xl shadow-soft"
+              className="w-full h-full max-h-[320px] sm:max-h-[380px] object-cover rounded-2xl sm:rounded-3xl shadow-soft"
             />
-            <span className="absolute top-6 left-6 rounded-full bg-white/95 backdrop-blur px-3.5 py-1 text-xs font-bold text-blush-600 border border-blush-100 shadow-sm">
+            <span className="absolute top-4 left-4 sm:top-6 sm:left-6 rounded-full bg-white/95 backdrop-blur px-3 py-1 text-xs font-bold text-blush-600 border border-blush-100 shadow-sm">
               {product.brand}
             </span>
           </div>
 
           {/* Product Details & Why It Helps */}
-          <div className="p-6 sm:p-8 flex flex-col justify-between">
+          <div className="p-4 sm:p-8 flex flex-col justify-between">
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-ink/50">
                 {product.category}
@@ -145,11 +145,11 @@ function ProductModal({
 
         {/* Related Products */}
         {relatedProducts.length > 0 && (
-          <div className="p-6 sm:p-8 bg-cream/50 border-t border-blush-100">
+          <div className="p-4 sm:p-8 bg-cream/50 border-t border-blush-100">
             <h4 className="font-serif text-lg font-bold text-ink mb-4">
               {suggestedSkinType ? 'Other Formulations for Your Skin Profile' : 'Pairs Well With In Routine'}
             </h4>
-            <div className="grid sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               {relatedProducts.map((rp) => (
                 <div
                   key={rp.id}
@@ -202,12 +202,12 @@ function ProductCard({
       onClick={onClick}
       className={`reveal ${
         visible ? 'is-visible' : ''
-      } cursor-pointer group relative rounded-4xl bg-white ring-1 ring-blush-100 overflow-hidden shadow-soft hover:shadow-soft-xl transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between`}
+      } cursor-pointer group relative rounded-3xl sm:rounded-4xl bg-white ring-1 ring-blush-100 overflow-hidden shadow-soft hover:shadow-soft-xl transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between`}
       style={{ transitionDelay: `${index * 50}ms` }}
     >
       <div>
         {/* Product Visual Container */}
-        <div className="relative h-64 overflow-hidden shrink-0 bg-slate-50">
+        <div className="relative h-60 sm:h-64 md:h-72 overflow-hidden shrink-0 bg-slate-50">
           <img
             src={product.image}
             alt={product.name}
@@ -215,18 +215,18 @@ function ProductCard({
           />
 
           {/* Real Brand Badge */}
-          <span className="absolute top-4 left-4 rounded-full bg-white/95 backdrop-blur px-3 py-1 text-xs font-bold text-blush-600 border border-blush-100 shadow-sm">
+          <span className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 rounded-full bg-white/95 backdrop-blur px-3 py-1 text-xs font-bold text-blush-600 border border-blush-100 shadow-sm">
             {product.brand}
           </span>
 
           {/* Price Tag */}
-          <span className="absolute top-4 right-4 rounded-full bg-ink/85 backdrop-blur px-3 py-1 text-xs font-bold text-white shadow-sm">
+          <span className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 rounded-full bg-ink/85 backdrop-blur px-3 py-1 text-xs font-bold text-white shadow-sm">
             {product.price}
           </span>
 
           {/* Skin Match Tag */}
           {isMatch && (
-            <span className="absolute bottom-3 left-4 rounded-full bg-emerald-600/90 backdrop-blur text-white px-2.5 py-0.5 text-[10px] font-bold flex items-center gap-1 shadow-sm">
+            <span className="absolute bottom-3 left-3.5 sm:left-4 rounded-full bg-emerald-600/95 backdrop-blur text-white px-2.5 py-0.5 text-[10px] font-bold flex items-center gap-1 shadow-sm">
               <Sparkles className="w-3 h-3" />
               Prescribed for your {suggestedSkinType} skin
             </span>
@@ -234,7 +234,7 @@ function ProductCard({
         </div>
 
         {/* Card Content */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           <div className="flex items-center justify-between text-xs mb-2">
             <span className="text-[10px] font-bold uppercase tracking-wider text-ink/50">
               {product.category}
@@ -245,13 +245,13 @@ function ProductCard({
             </div>
           </div>
 
-          <h3 className="font-serif text-xl font-bold text-ink leading-tight group-hover:text-blush-600 transition-colors">
+          <h3 className="font-serif text-lg sm:text-xl font-bold text-ink leading-tight group-hover:text-blush-600 transition-colors">
             {product.name}
           </h3>
           <p className="text-xs text-blush-600 font-semibold mt-0.5">{product.tagline}</p>
 
           {/* WHY IT HELPS YOU BOX */}
-          <div className="mt-3 p-3 rounded-2xl bg-blush-50/70 border border-blush-100 text-[11px] text-ink/75 leading-relaxed line-clamp-3">
+          <div className="mt-3 p-3 rounded-2xl bg-blush-50/70 border border-blush-100 text-[11px] sm:text-xs text-ink/75 leading-relaxed">
             <span className="font-bold text-blush-700 block mb-0.5">
               🎯 Why it helps your skin:
             </span>
@@ -261,7 +261,7 @@ function ProductCard({
           {/* Target Concerns Chips */}
           {product.targetConcerns && product.targetConcerns.length > 0 && (
             <div className="mt-3 flex flex-wrap gap-1.5">
-              {product.targetConcerns.slice(0, 2).map((tc) => (
+              {product.targetConcerns.slice(0, 3).map((tc) => (
                 <span
                   key={tc}
                   className="rounded-full bg-cream px-2.5 py-0.5 text-[10px] font-semibold text-ink/75 border border-blush-100"
@@ -274,10 +274,10 @@ function ProductCard({
         </div>
       </div>
 
-      <div className="px-6 pb-6 pt-2">
+      <div className="px-4 pb-4 pt-1 sm:px-6 sm:pb-6 sm:pt-2">
         <button
           onClick={onAdd}
-          className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-3 text-xs font-semibold transition-all duration-300 shadow-sm ${
+          className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-3 text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm ${
             isAdded
               ? 'bg-emerald-600 text-white shadow-soft'
               : 'bg-ink text-white hover:bg-blush-600'
@@ -349,13 +349,13 @@ export default function Products({ suggestedSkinType }: { suggestedSkinType?: Sk
   });
 
   return (
-    <section id="products" className="relative py-24 lg:py-32 bg-cream">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <section id="products" className="relative py-20 sm:py-24 lg:py-32 bg-cream">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="max-w-3xl mx-auto text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blush-500">
             Clinical Product Dispensary
           </span>
-          <h2 className="mt-3 font-serif text-4xl sm:text-5xl font-semibold text-ink">
+          <h2 className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink">
             Real Products for Real Skin Problems
           </h2>
           <p className="mt-4 text-ink/75 leading-relaxed text-sm sm:text-base">
@@ -364,7 +364,7 @@ export default function Products({ suggestedSkinType }: { suggestedSkinType?: Sk
         </div>
 
         {/* Search & Concern Filter Bar */}
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 items-center justify-between max-w-5xl mx-auto">
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 items-center justify-between max-w-5xl mx-auto">
           <div className="relative w-full sm:max-w-xs">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-ink/40" />
             <input
@@ -377,12 +377,12 @@ export default function Products({ suggestedSkinType }: { suggestedSkinType?: Sk
           </div>
 
           {/* Filter Pills */}
-          <div className="flex gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 hide-scrollbar">
+          <div className="flex gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 scrollbar-none">
             {concernFilters.map((flt) => (
               <button
                 key={flt}
                 onClick={() => setConcernFilter(flt)}
-                className={`whitespace-nowrap px-4 py-2 rounded-full text-xs font-semibold transition-all ${
+                className={`whitespace-nowrap px-4 py-2 rounded-full text-xs font-semibold transition-all shrink-0 ${
                   concernFilter === flt
                     ? 'bg-ink text-white shadow-soft'
                     : 'bg-white text-ink/75 hover:bg-blush-50 border border-blush-100'
@@ -394,8 +394,8 @@ export default function Products({ suggestedSkinType }: { suggestedSkinType?: Sk
           </div>
         </div>
 
-        {/* Product Grid */}
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Product Grid: 1 column on mobile (up to 480px / 640px), 2 on tablets, 3 on desktop */}
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {filteredProducts.map((p, i) => (
             <ProductCard
               key={p.id}

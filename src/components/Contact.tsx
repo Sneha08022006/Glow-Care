@@ -25,15 +25,15 @@ export default function Contact() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-beige-50 to-blush-50" />
       <div className="absolute -top-16 right-1/4 w-80 h-80 rounded-full bg-blush-200/50 blur-3xl -z-10" />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="max-w-2xl mx-auto text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blush-500">
             Contact
           </span>
-          <h2 className="mt-3 font-serif text-4xl sm:text-5xl font-semibold text-ink">
+          <h2 className="mt-3 font-serif text-3xl sm:text-5xl font-semibold text-ink">
             Let's talk skin
           </h2>
-          <p className="mt-4 text-ink/70 leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-base text-ink/70 leading-relaxed">
             Questions about your routine or an order? Our team replies within
             one business day.
           </p>
@@ -41,29 +41,29 @@ export default function Contact() {
 
         <div
           ref={ref}
-          className={`reveal ${visible ? 'is-visible' : ''} mt-12 grid lg:grid-cols-5 gap-8`}
+          className={`reveal ${visible ? 'is-visible' : ''} mt-10 sm:mt-12 grid lg:grid-cols-5 gap-6 sm:gap-8`}
         >
           {/* Info */}
           <div className="lg:col-span-2 space-y-4">
             {contactInfo.map((c) => (
               <div
                 key={c.label}
-                className="flex items-center gap-4 rounded-3xl bg-cream ring-1 ring-blush-100 p-5 shadow-soft"
+                className="flex items-center gap-4 rounded-3xl bg-cream ring-1 ring-blush-100 p-4 sm:p-5 shadow-soft"
               >
-                <span className="grid place-items-center w-12 h-12 rounded-2xl bg-blush-100 text-blush-600">
+                <span className="grid place-items-center w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-blush-100 text-blush-600 shrink-0">
                   <c.icon className="w-5 h-5" />
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-blush-500">
                     {c.label}
                   </p>
-                  <p className="text-ink font-medium">{c.value}</p>
+                  <p className="text-ink font-medium text-sm sm:text-base">{c.value}</p>
                 </div>
               </div>
             ))}
-            <div className="rounded-3xl bg-gradient-to-br from-blush-300 to-blush-500 p-6 text-cream shadow-soft">
-              <p className="font-serif text-2xl font-semibold">Skincare concierge</p>
-              <p className="mt-2 text-sm text-cream/90 leading-relaxed">
+            <div className="rounded-3xl bg-gradient-to-br from-blush-300 to-blush-500 p-5 sm:p-6 text-cream shadow-soft">
+              <p className="font-serif text-xl sm:text-2xl font-semibold">Skincare concierge</p>
+              <p className="mt-2 text-xs sm:text-sm text-cream/90 leading-relaxed">
                 Book a free 15-minute consultation with one of our experts to
                 refine your routine.
               </p>
@@ -73,46 +73,46 @@ export default function Contact() {
           {/* Form */}
           <form
             onSubmit={handleSubmit}
-            className="lg:col-span-3 rounded-5xl bg-cream/80 backdrop-blur-xl ring-1 ring-blush-100 shadow-soft-lg p-6 sm:p-8 space-y-5"
+            className="lg:col-span-3 rounded-3xl sm:rounded-5xl bg-cream/80 backdrop-blur-xl ring-1 ring-blush-100 shadow-soft-lg p-4 sm:p-8 space-y-4 sm:space-y-5"
           >
-            <div className="grid sm:grid-cols-2 gap-5">
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
               <div>
-                <label className="block text-sm font-medium text-ink/70 mb-2">Name</label>
+                <label className="block text-xs sm:text-sm font-medium text-ink/70 mb-1.5 sm:mb-2">Name</label>
                 <input
                   required
                   type="text"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder="Your name"
-                  className="w-full rounded-2xl bg-white ring-1 ring-blush-100 px-4 py-3 text-ink placeholder:text-ink/40 focus:ring-2 focus:ring-blush-400 focus:outline-none transition"
+                  className="w-full rounded-2xl bg-white ring-1 ring-blush-100 px-4 py-3 text-sm text-ink placeholder:text-ink/40 focus:ring-2 focus:ring-blush-400 focus:outline-none transition"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-ink/70 mb-2">Email</label>
+                <label className="block text-xs sm:text-sm font-medium text-ink/70 mb-1.5 sm:mb-2">Email</label>
                 <input
                   required
                   type="email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder="you@email.com"
-                  className="w-full rounded-2xl bg-white ring-1 ring-blush-100 px-4 py-3 text-ink placeholder:text-ink/40 focus:ring-2 focus:ring-blush-400 focus:outline-none transition"
+                  className="w-full rounded-2xl bg-white ring-1 ring-blush-100 px-4 py-3 text-sm text-ink placeholder:text-ink/40 focus:ring-2 focus:ring-blush-400 focus:outline-none transition"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-ink/70 mb-2">Message</label>
+              <label className="block text-xs sm:text-sm font-medium text-ink/70 mb-1.5 sm:mb-2">Message</label>
               <textarea
                 required
-                rows={5}
+                rows={4}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 placeholder="Tell us about your skin goals..."
-                className="w-full rounded-2xl bg-white ring-1 ring-blush-100 px-4 py-3 text-ink placeholder:text-ink/40 focus:ring-2 focus:ring-blush-400 focus:outline-none transition resize-none"
+                className="w-full rounded-2xl bg-white ring-1 ring-blush-100 px-4 py-3 text-sm text-ink placeholder:text-ink/40 focus:ring-2 focus:ring-blush-400 focus:outline-none transition resize-none"
               />
             </div>
             <button
               type="submit"
-              className="group inline-flex items-center gap-2 rounded-full bg-ink text-cream px-7 py-3.5 font-semibold shadow-soft hover:bg-blush-600 transition-colors duration-300"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-ink text-cream px-7 py-3.5 font-semibold text-sm shadow-soft hover:bg-blush-600 transition-colors duration-300 w-full sm:w-auto"
             >
               {sent ? (
                 <>

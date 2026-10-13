@@ -48,19 +48,19 @@ export default function LumiereAuthModal({ isOpen, onClose, onLoginSuccess }: Lu
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
       {/* Outer Card with Rose Marble Frame */}
-      <div className="relative w-full max-w-5xl bg-[#FCF8F5] rounded-[2.5rem] shadow-2xl overflow-hidden border border-white/80 grid lg:grid-cols-12 min-h-[640px] my-auto">
+      <div className="relative w-full max-w-5xl bg-[#FCF8F5] rounded-3xl sm:rounded-[2.5rem] shadow-2xl overflow-hidden border border-white/80 grid lg:grid-cols-12 min-h-[640px] my-auto">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 z-30 w-10 h-10 rounded-full bg-white/70 hover:bg-white text-ink/70 hover:text-ink backdrop-blur-md flex items-center justify-center transition-all shadow-sm"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 z-30 w-10 h-10 rounded-full bg-white/70 hover:bg-white text-ink/70 hover:text-ink backdrop-blur-md flex items-center justify-center transition-all shadow-sm"
           aria-label="Close"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* LEFT COLUMN: THE AUTH FORM (Exact UI from your image) */}
-        <div className="lg:col-span-6 xl:col-span-7 p-6 sm:p-10 md:p-12 flex flex-col justify-between relative bg-gradient-to-b from-[#FFFDFB] via-[#FCF6F4] to-[#F9EFEF]/60">
+        <div className="lg:col-span-6 xl:col-span-7 p-4 sm:p-8 md:p-12 flex flex-col justify-between relative bg-gradient-to-b from-[#FFFDFB] via-[#FCF6F4] to-[#F9EFEF]/60">
           
           {/* Subtle Ambient Background Glows */}
           <div className="absolute top-0 left-0 w-72 h-72 bg-[#F7E5E8]/60 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -259,7 +259,7 @@ export default function LumiereAuthModal({ isOpen, onClose, onLoginSuccess }: Lu
           </form>
 
           {/* 4 LUXURY TRUST BADGES (Bottom of Form) */}
-          <div className="mt-8 pt-5 border-t border-[#3A2E2B]/10 grid grid-cols-4 gap-2 text-center">
+          <div className="mt-8 pt-5 border-t border-[#3A2E2B]/10 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-2 text-center">
             {/* 1. Clean Beauty */}
             <div className="flex flex-col items-center group">
               <span className="w-7 h-7 rounded-full bg-white/70 flex items-center justify-center text-[#9E4F63] mb-1 group-hover:scale-110 transition-transform shadow-xs">

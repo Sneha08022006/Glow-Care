@@ -29,22 +29,22 @@ export default function About() {
   return (
     <section id="about" className="relative py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-cream" />
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-2 gap-14 items-center">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 grid lg:grid-cols-2 gap-10 sm:gap-14 items-center">
         <div
           ref={ref}
           className={`reveal ${visible ? 'is-visible' : ''} relative`}
         >
           <div className="absolute inset-0 -m-4 rounded-[3rem] bg-gradient-to-br from-blush-200 to-beige-200 blur-2xl opacity-70" />
-          <div className="relative grid grid-cols-2 gap-4">
+          <div className="relative grid grid-cols-2 gap-3 sm:gap-4">
             <img
               src="https://images.pexels.com/photos/7020271/pexels-photo-7020271.jpeg?auto=compress&cs=tinysrgb&h=700&w=500"
               alt="Calm spa scene"
-              className="rounded-4xl object-cover h-72 w-full shadow-soft"
+              className="rounded-3xl sm:rounded-4xl object-cover h-56 sm:h-72 w-full shadow-soft"
             />
             <img
               src="https://images.pexels.com/photos/1502219/pexels-photo-1502219.jpeg?auto=compress&cs=tinysrgb&h=700&w=500"
               alt="Skincare products"
-              className="rounded-4xl object-cover h-72 w-full shadow-soft mt-10"
+              className="rounded-3xl sm:rounded-4xl object-cover h-56 sm:h-72 w-full shadow-soft mt-8 sm:mt-10"
             />
           </div>
         </div>
@@ -53,21 +53,21 @@ export default function About() {
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blush-500">
             About GlowCare
           </span>
-          <h2 className="mt-3 font-serif text-4xl sm:text-5xl font-semibold text-ink leading-tight">
+          <h2 className="mt-3 font-serif text-3xl sm:text-5xl font-semibold text-ink leading-tight">
             Skincare that truly knows you
           </h2>
-          <p className="mt-5 text-ink/70 leading-relaxed">
+          <p className="mt-3 sm:mt-5 text-sm sm:text-base text-ink/70 leading-relaxed">
             GlowCare blends clean beauty with intelligent personalization.
             We believe great skin starts with understanding it — so we built a
             system that listens to your skin and recommends exactly what it
             needs, nothing it does not.
           </p>
 
-          <div className="mt-10 grid sm:grid-cols-2 gap-6">
+          <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {pillars.map((p) => (
               <div
                 key={p.title}
-                className="rounded-3xl bg-blush-50 p-5 ring-1 ring-blush-100 hover:shadow-soft transition-shadow duration-300"
+                className="rounded-3xl bg-blush-50 p-4 sm:p-5 ring-1 ring-blush-100 hover:shadow-soft transition-shadow duration-300"
               >
                 <span className="grid place-items-center w-11 h-11 rounded-2xl bg-white text-blush-600 shadow-soft">
                   <p.icon className="w-5 h-5" />

@@ -50,10 +50,10 @@ export default function Hero({ onOpenAuth }: HeroProps) {
             </p>
 
             {/* Actions */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <a
                 href="#quiz"
-                className="group inline-flex items-center gap-2 rounded-full bg-[#9E4F63] hover:bg-[#883E51] text-white px-7 py-3.5 text-sm font-semibold shadow-soft-lg hover:shadow-xl hover:shadow-[#9E4F63]/25 transition-all duration-300 transform active:scale-95"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#9E4F63] hover:bg-[#883E51] text-white px-7 py-3.5 text-sm font-semibold shadow-soft-lg hover:shadow-xl hover:shadow-[#9E4F63]/25 transition-all duration-300 transform active:scale-95 text-center"
               >
                 <span>Take the Skin Quiz</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -62,7 +62,7 @@ export default function Hero({ onOpenAuth }: HeroProps) {
               <button
                 type="button"
                 onClick={onOpenAuth}
-                className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-md px-6 py-3.5 text-sm font-semibold text-[#3A2E2B] ring-1 ring-[#9E4F63]/25 hover:bg-white hover:text-[#9E4F63] shadow-soft transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white/80 backdrop-blur-md px-6 py-3.5 text-sm font-semibold text-[#3A2E2B] ring-1 ring-[#9E4F63]/25 hover:bg-white hover:text-[#9E4F63] shadow-soft transition-all duration-300 text-center"
               >
                 <span>GlowCare Member Lounge ♡</span>
               </button>
@@ -117,22 +117,22 @@ export default function Hero({ onOpenAuth }: HeroProps) {
               </div>
 
               {/* Floating Handwritten Card: "Same Girl... Brighter Tomorrow ♡" */}
-              <div className="absolute -left-4 sm:-left-8 bottom-12 z-20 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
-                <div className="bg-[#FFFDF9]/95 backdrop-blur-xl px-5 py-3.5 rounded-2xl shadow-xl border border-white/90 text-center max-w-[210px]">
-                  <p className="font-script text-2xl text-[#9E4F63] leading-snug">
+              <div className="absolute -left-2 sm:-left-8 bottom-8 sm:bottom-12 z-20 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+                <div className="bg-[#FFFDF9]/95 backdrop-blur-xl px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl shadow-xl border border-white/90 text-center max-w-[190px] sm:max-w-[210px]">
+                  <p className="font-script text-xl sm:text-2xl text-[#9E4F63] leading-snug">
                     Same Girl...
                   </p>
-                  <p className="font-script text-2xl text-[#9E4F63] leading-snug">
+                  <p className="font-script text-xl sm:text-2xl text-[#9E4F63] leading-snug">
                     Brighter Tomorrow ♡
                   </p>
                 </div>
               </div>
 
               {/* Floating Card: AI Accuracy */}
-              <div className="absolute -right-3 sm:-right-6 top-8 rounded-2xl bg-white/90 backdrop-blur-xl px-5 py-3.5 shadow-xl ring-1 ring-[#F7E5E8] animate-float-slow">
+              <div className="absolute -right-2 sm:-right-6 top-6 sm:top-8 rounded-2xl bg-white/90 backdrop-blur-xl px-4 py-2.5 sm:px-5 sm:py-3.5 shadow-xl ring-1 ring-[#F7E5E8] animate-float-slow">
                 <p className="text-[10px] font-bold text-[#9E4F63] uppercase tracking-wider">Clinical Accuracy</p>
-                <p className="font-serif text-2xl font-bold text-[#3A2E2B] leading-none mt-1">99.4%</p>
-                <p className="text-[11px] text-[#3A2E2B]/60 mt-0.5">Dermatologist Verified</p>
+                <p className="font-serif text-xl sm:text-2xl font-bold text-[#3A2E2B] leading-none mt-1">99.4%</p>
+                <p className="text-[10px] sm:text-[11px] text-[#3A2E2B]/60 mt-0.5">Dermatologist Verified</p>
               </div>
 
             </div>
@@ -140,8 +140,8 @@ export default function Hero({ onOpenAuth }: HeroProps) {
 
         </div>
 
-        {/* 4 LUXURY BRAND VALUE BADGES (Across bottom of Hero) */}
-        <div className="mt-16 pt-8 border-t border-[#F7E5E8] grid grid-cols-2 md:grid-cols-4 gap-6">
+        {/* 4 LUXURY BRAND VALUE BADGES (1 col on mobile, 2 on tablet, 4 on desktop) */}
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-[#F7E5E8] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 lg:gap-6">
           <div className="flex items-center gap-3.5 bg-white/60 backdrop-blur rounded-2xl p-3.5 border border-white/80 shadow-xs">
             <span className="w-10 h-10 rounded-full bg-[#F7E5E8] text-[#9E4F63] flex items-center justify-center shrink-0">
               <Leaf className="w-5 h-5" />
